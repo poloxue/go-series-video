@@ -22,10 +22,14 @@ func header(r *http.Response) {
 }
 
 func encoding(r *http.Response) {
+	// content-type 中会提供编码，比如 content-type="text/html;charset=utf-8"
+	// html head meta 获取编码，
+	// <meta http-equiv=Content-Type content="text/html;charset=utf-8"
+	// 可以通过网页的头部猜测网页的编码信息。
 }
 
 func main() {
-	r, err := http.Get("http://httpbin.org/get")
+	r, err := http.Get("https://baidu.com")
 	if err != nil {
 		panic(err)
 	}
@@ -33,5 +37,6 @@ func main() {
 
 	// responseBody(r)
 	// status(r)
-	header(r)
+	// header(r)
+	encoding(r)
 }
