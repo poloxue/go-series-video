@@ -1,7 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"golang.org/x/net/html/charset"
+	"golang.org/x/text/transform"
 	"io/ioutil"
 	"net/http"
 )
@@ -26,6 +29,14 @@ func encoding(r *http.Response) {
 	// html head meta 获取编码，
 	// <meta http-equiv=Content-Type content="text/html;charset=utf-8"
 	// 可以通过网页的头部猜测网页的编码信息。
+	bufReader := bufio.NewReader(r.Body)
+	bytes, _ := bufReader.Peek(1024) // 不会移动 reader 的读取位置
+
+	e, _, _ := charset.DetermineEncoding(bytes, r.Header.Get("content-type"))
+
+	bodyReader := transform.NewReader(bufReader, e.NewDecoder())
+	content, _ := ioutil.ReadAll(bodyReader)
+	fmt.Printf("%s", content)
 }
 
 func main() {
