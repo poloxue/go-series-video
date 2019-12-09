@@ -58,7 +58,6 @@ func DownloadFileProgress(url, filename string) {
 	}
 
 	_, _ = io.Copy(f, reader)
-
 }
 
 func main() {

@@ -1,0 +1,6 @@
+package gopinery
+
+type Swi struct{}
+
+func (*Swi) Industries() {
+}
