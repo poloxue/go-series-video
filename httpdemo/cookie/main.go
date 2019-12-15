@@ -2,8 +2,14 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
+	"net/http/cookiejar"
+	"net/url"
+	"os"
+
+	cookiejar2 "github.com/juju/persistent-cookiejar"
 )
 
 func rrCookie() {
@@ -46,6 +52,49 @@ func rrCookie() {
 	fmt.Printf("%s\n", content)
 }
 
+func jarCookie() {
+	jar, _ := cookiejar.New(nil)
+	client := &http.Client{
+		Jar: jar,
+	}
+	r, _ := client.Get("http://httpbin.org/cookies/set?username=poloxue&password=123456")
+	defer func() { _ = r.Body.Close() }()
+
+	_, _ = io.Copy(os.Stdout, r.Body)
+}
+
+func login(jar http.CookieJar) {
+
+	client := &http.Client{
+		Jar: jar,
+	}
+	r, _ := client.PostForm(
+		"http://localhost:8080/login",
+		url.Values{"username": {"poloxue"}, "password": {"poloxue123"}},
+	)
+	defer func() { _ = r.Body.Close() }()
+	fmt.Println(r.Cookies())
+
+	_, _ = io.Copy(os.Stdout, r.Body)
+}
+
+func center(jar http.CookieJar) {
+	client := &http.Client{
+		Jar: jar,
+	}
+	r, _ := client.Get("http://localhost:8080/center")
+	defer func() { _ = r.Body.Close() }()
+
+	_, _ = io.Copy(os.Stdout, r.Body)
+}
+
 func main() {
-	rrCookie()
+	// rrCookie()
+	// jarCookie()
+	// cookie 的分类有两种 一种是会话期 cookie 一种是持久性 cookie
+	// jar, _ := cookiejar.New(nil)
+	jar, _ := cookiejar2.New(nil)
+	// login(jar)
+	center(jar)
+	_ = jar.Save()
 }
