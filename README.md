@@ -56,4 +56,4 @@ Go 如何灵活地处理 JSON | 待开始 | 暂无代码
 - [持久化 Cookie](https://www.bilibili.com/video/av79633877?p=11)
 - [超时和代理](https://www.bilibili.com/video/av79633877?p=11)
 
-待更新。。。
+net/http 客户端部分的基本使用，视情况考虑是否录制一些其他高级用法。
