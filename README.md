@@ -43,10 +43,17 @@ Go 如何灵活地处理 JSON | 待开始 | 暂无代码
 
 **Go 如何发起 http 请求**
 
-- [前奏说明](https://www.bilibili.com/video/av77753893)
-- [基本方法请求](https://www.bilibili.com/video/av77868777)
-- [request 设置](https://www.bilibili.com/video/av77981611)
-- [响应信息](https://www.bilibili.com/video/av78089006)
-- [获取响应的编码信息](https://www.bilibili.com/video/av78194261)
+- [前奏说明](https://www.bilibili.com/video/av79633877?p=1)
+- [基本方法请求](https://www.bilibili.com/video/av79633877?p=2)
+- [request 设置](https://www.bilibili.com/video/av79633877?p=3)
+- [响应信息](https://www.bilibili.com/video/av79633877?p=4)
+- [响应编码信息](https://www.bilibili.com/video/av79633877?p=5)
+- [文件下载和进度显示](https://www.bilibili.com/video/av79633877?p=6)
+- [POST 提交 form 表单和 json](https://www.bilibili.com/video/av79633877?p=7)
+- [POST 上传文件](https://www.bilibili.com/video/av79633877?p=8)
+- [如何处理重定向](https://www.bilibili.com/video/av79633877?p=9)
+- [Cookie 处理](https://www.bilibili.com/video/av79633877?p=10)
+- [持久化 Cookie](https://www.bilibili.com/video/av79633877?p=11)
+- [超时和代理](https://www.bilibili.com/video/av79633877?p=11)
 
 待更新。。。
